@@ -1,10 +1,10 @@
 ﻿Feature: Get latest exchange rates from https://api.exchangeratesapi.io/latest endpoint
 	In order to know how much selected currency is worth
 	As an API consumer
-	I want to obtain foreign exchange rates this currency
+	I want to obtain foreign exchange rates for this currency
 
 @positive
-Scenario: List latest exchange rates for selected base currency
+Scenario: Request latest exchange rates for selected base currency
 	Given I want to obtain the latest exchange rates for <baseCurrency>
 	When I send a GET HTTP request
 	Then I receive a successful HTTP response
@@ -16,7 +16,7 @@ Examples:
 	| PLN |
 
 @positive
-Scenario: List specific latest exchange rates for selected target currencies
+Scenario: Request latest exchange rates for selected currencies
 	Given I want to obtain the latest exchange rates for EUR
 	And I want to receive rates only for <targetCurrencies>
 	When I send a GET HTTP request
@@ -27,7 +27,7 @@ Examples:
 	| NZD				|
 	| USD,CAD			|
 	| PLN,CZK,HRK		|
-	| CAD,HKD,ISK,PHP,DKK,HUF,CZK,AUD,RON,SEK,IDR,INR,BRL,RUB,HRK,JPY,THB,CHF,SGD,PLN,BGN,TRY,CNY,NOK,NZD,ZAR,USD,MXN,ILS,GBP,KRW,MYR |
+	| CAD,HKD,ISK,PHP,DKK,HUF,CZK,AUD,RON,SEK,IDR,INR,BRL,RUB,HRK |
 
 @negative
 Scenario: Request exchange rates for multi-currency base
